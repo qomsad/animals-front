@@ -4,11 +4,18 @@ import {
   TextInput,
   ReferenceInput,
   SelectInput,
+  useNotify,
 } from "react-admin";
 
 export const OrganizationCreate = () => {
+  const notify = useNotify();
+
+  const onError = (error: Error) => {
+    notify(error.message);
+  };
+
   return (
-    <Create>
+    <Create mutationOptions={{ onError }}>
       <SimpleForm>
         <TextInput
           label="Адрес"

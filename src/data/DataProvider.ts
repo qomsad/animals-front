@@ -1,4 +1,4 @@
-import { fetchUtils, DataProvider, Options } from "react-admin";
+import { fetchUtils, DataProvider, Options, HttpError } from "react-admin";
 
 const api = import.meta.env.DEV
   ? import.meta.env.VITE_API_URL
@@ -58,11 +58,18 @@ export const dataProvider: DataProvider = {
 
   getManyReference: (resource, params) => new Promise<any>(() => null),
 
-  create: (resource, params) =>
-    request(`${api}/${resource}`, {
+  create: async (resource, params) => {
+    const response = await request(`${api}/${resource}`, {
       method: "POST",
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: json })),
+    });
+    if (response.status === 200) {
+      const body = response.body;
+      const data = JSON.parse(body);
+      return Promise.resolve({ data });
+    }
+    return Promise.reject(new HttpError(response.body, response.status));
+  },
 
   update: (resource, params) =>
     request(`${api}/${resource}/${params.id}`, {
