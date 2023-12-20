@@ -13,6 +13,7 @@ import {
   ReferenceArrayInput,
   DateField,
   DateInput,
+  ReferenceField,
 } from "react-admin";
 import { Stack } from "@mui/material";
 
@@ -43,8 +44,20 @@ export const ContractList = () => (
       <TextField source="num" label="Номер" />
       <DateField source="conclusionDate" label="Дата заключения" />
       <DateField source="competitionDate" label="Дата завершения" />
-      <TextField source="customer.name" label="Заказчик" />
-      <TextField source="contractor.name" label="Исполнитель" />
+      <ReferenceField
+        source="customerId"
+        reference="organizations"
+        label="Заказчик"
+      >
+        <TextField source="name" label="Заказчик" />
+      </ReferenceField>
+      <ReferenceField
+        source="contractorId"
+        reference="organizations"
+        label="Исполнитель"
+      >
+        <TextField source="name" label="Исполнитель" />
+      </ReferenceField>
     </Datagrid>
   </List>
 );
