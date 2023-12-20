@@ -64,9 +64,7 @@ export const dataProvider: DataProvider = {
       body: JSON.stringify(params.data),
     });
     if (response.status === 200) {
-      const body = response.body;
-      const data = JSON.parse(body);
-      return Promise.resolve({ data });
+      return Promise.resolve({ data: JSON.parse(JSON.stringify(params.data)) });
     }
     return Promise.reject(new HttpError(response.body, response.status));
   },
@@ -75,14 +73,14 @@ export const dataProvider: DataProvider = {
     request(`${api}/${resource}/${params.id}`, {
       method: "PUT",
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: json })),
+    }).then(),
 
   updateMany: (resource, params) => new Promise<any>(() => null),
 
   delete: (resource, params) =>
     request(`${api}/${resource}/${params.id}`, {
       method: "DELETE",
-    }).then(({ json }) => ({ data: json })),
+    }).then(),
 
   deleteMany: (resource, params) => new Promise<any>(() => null),
 };

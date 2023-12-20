@@ -33,7 +33,7 @@ export const ContractCreate = () => {
           sx={{ width: 400 }}
         />
         <ReferenceInput
-          source="customer.id"
+          source="customerId"
           reference="organizations"
           label="Заказчик"
         >
@@ -45,7 +45,7 @@ export const ContractCreate = () => {
           />
         </ReferenceInput>
         <ReferenceInput
-          source="contractor.id"
+          source="contractorId"
           reference="organizations"
           label="Исполнитель"
         >
@@ -58,9 +58,9 @@ export const ContractCreate = () => {
         </ReferenceInput>
         <ArrayInput source="contractCosts" label="Стоимость">
           <SimpleFormIterator>
-            <NumberInput source="catchCost" label="рублей" />
+            <NumberInput source="price" label="рублей" />
             <ReferenceInput
-              source="municipality.id"
+              source="municipalityId"
               label="Населенный пункт"
               reference="dic_municipality"
             >

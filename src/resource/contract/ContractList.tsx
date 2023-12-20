@@ -42,7 +42,7 @@ export const ContractList = () => (
       <TextField source="id" label="#" />
       <TextField source="num" label="Номер" />
       <DateField source="conclusionDate" label="Дата заключения" />
-      <DateField source="completionDate" label="Дата завершения" />
+      <DateField source="competitionDate" label="Дата завершения" />
       <TextField source="customer.name" label="Заказчик" />
       <TextField source="contractor.name" label="Исполнитель" />
     </Datagrid>
@@ -55,7 +55,7 @@ const ContractFilters = [
   <DateInput label="Дата завершения" source="completionDate" defaultValue="" />,
   <ReferenceArrayInput
     label="Заказчик"
-    source="customer"
+    source="customerId"
     reference="organizations"
   >
     <AutocompleteArrayInput
@@ -67,7 +67,7 @@ const ContractFilters = [
   </ReferenceArrayInput>,
   <ReferenceArrayInput
     label="Исполнитель"
-    source="contractor"
+    source="contractorId"
     reference="organizations"
   >
     <AutocompleteArrayInput
