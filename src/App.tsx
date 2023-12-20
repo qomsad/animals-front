@@ -7,6 +7,7 @@ import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
 import PetsIcon from "@mui/icons-material/Pets";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
+import EqualizerIcon from "@mui/icons-material/Equalizer";
 import { OrganizationList } from "./resource/organization/OrganizationList";
 import { OrganizationEdit } from "./resource/organization/OrganizationEdit";
 import { OrganizationCreate } from "./resource/organization/OrganizationCreate";
@@ -16,6 +17,10 @@ import { ContractCreate } from "./resource/contract/ContractCreate";
 import { CatchActList } from "./resource/catch_act/CatchActList";
 import { CatchActEdit as CatchActEdit } from "./resource/catch_act/CatchActEdit";
 import { CatchScheduleList } from "./resource/catch_schedule/CatchScheduleList";
+import { ReportMunicipalityList } from "./resource/report_municipality/ReportMunicipalityList";
+import { ReportMunicipalityCreate } from "./resource/report_municipality/ReportMunicipalityCreate";
+import { CatchActCreate } from "./resource/catch_act/CatchActCreate";
+import { ReportMunicipalityEdit } from "./resource/report_municipality/ReportMunicipalityEdit";
 
 export const App = () => (
   <Admin
@@ -27,6 +32,7 @@ export const App = () => (
     <Resource name="dic_organization_type" />
     <Resource name="dic_municipality" />
     <Resource name="catch_schedule_status" />
+    <Resource name="report_municipality_status" />
     <Resource
       name="organizations"
       list={OrganizationList}
@@ -47,6 +53,7 @@ export const App = () => (
       name="catch_acts"
       list={CatchActList}
       edit={CatchActEdit}
+      create={CatchActCreate}
       icon={PetsIcon}
       options={{ label: "Акты отлова", title: "Акты отлова" }}
     />
@@ -56,6 +63,14 @@ export const App = () => (
       edit={EditGuesser}
       icon={AutoGraphIcon}
       options={{ label: "План-график отлова", title: "План-график отлова" }}
+    />
+    <Resource
+      name="report_municipality"
+      list={ReportMunicipalityList}
+      create={ReportMunicipalityCreate}
+      edit={ReportMunicipalityEdit}
+      icon={EqualizerIcon}
+      options={{ label: "Отчет по городам", title: "Отчет по городам" }}
     />
   </Admin>
 );
