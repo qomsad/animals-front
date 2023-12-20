@@ -31,12 +31,10 @@ export const dataProvider: DataProvider = {
           return `${key.split("DTE")[1]} < ${filters[key]}`;
         } else if (Array.isArray(filters[key])) {
           return `${key} == ${filters[key].join("|")}`;
-        } else if (JSON.stringify(filters[key]).startsWith("???DTS")) {
-          console.log("EZ");
         } else if (typeof filters[key] == "string") {
           return `${key} @=* ${filters[key]}`;
         } else if (typeof filters[key] == "number") {
-          return `${key} @=* ${filters[key]}`;
+          return `${key} == ${filters[key]}`;
         }
       })
       .join(",");

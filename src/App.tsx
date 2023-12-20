@@ -21,6 +21,8 @@ import { ReportMunicipalityList } from "./resource/report_municipality/ReportMun
 import { ReportMunicipalityCreate } from "./resource/report_municipality/ReportMunicipalityCreate";
 import { CatchActCreate } from "./resource/catch_act/CatchActCreate";
 import { ReportMunicipalityEdit } from "./resource/report_municipality/ReportMunicipalityEdit";
+import { CatchScheduleEdit } from "./resource/catch_schedule/CatchScheduleEdit";
+import { CatchScheduleCreate } from "./resource/catch_schedule/CatchScheduleCreate";
 
 export const App = () => (
   <Admin
@@ -60,7 +62,8 @@ export const App = () => (
     <Resource
       name="catch_schedule"
       list={CatchScheduleList}
-      edit={EditGuesser}
+      edit={CatchScheduleEdit}
+      create={CatchScheduleCreate}
       icon={AutoGraphIcon}
       options={{ label: "План-график отлова", title: "План-график отлова" }}
     />
