@@ -5,12 +5,15 @@ import { authProvider } from "./auth/AuthProvider";
 import { dataProvider } from "./data/DataProvider";
 import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
+import PetsIcon from "@mui/icons-material/Pets";
 import { OrganizationList } from "./resource/organization/OrganizationList";
 import { OrganizationEdit } from "./resource/organization/OrganizationEdit";
 import { OrganizationCreate } from "./resource/organization/OrganizationCreate";
 import { ContractList } from "./resource/contract/ContractList";
 import { ContractEdit } from "./resource/contract/ContractEdit";
 import { ContractCreate } from "./resource/contract/ContractCreate";
+import { CatchActList } from "./resource/catch_act/CatchActList";
+import { CatchActEdit as CatchActEdit } from "./resource/catch_act/CatchActEdit";
 
 export const App = () => (
   <Admin
@@ -36,6 +39,13 @@ export const App = () => (
       icon={DocumentScannerIcon}
       create={ContractCreate}
       options={{ label: "Контракты", title: "Контракты" }}
+    />
+    <Resource
+      name="catch_acts"
+      list={CatchActList}
+      edit={CatchActEdit}
+      icon={PetsIcon}
+      options={{ label: "Акты отлова", title: "Акты отлова" }}
     />
   </Admin>
 );
