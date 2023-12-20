@@ -55,7 +55,7 @@ const OrganizationFilters = [
   <NumberInput label="КПП" source="kpp" defaultValue="" />,
   <ReferenceArrayInput
     label="Вид организации"
-    source="organizationType"
+    source="organizationTypeId"
     reference="dic_organization_type"
   >
     <AutocompleteArrayInput
@@ -67,7 +67,7 @@ const OrganizationFilters = [
   </ReferenceArrayInput>,
   <ReferenceArrayInput
     label="Тип организации"
-    source="legalType"
+    source="legalTypeId"
     reference="dic_legal_type"
   >
     <AutocompleteArrayInput

@@ -45,6 +45,17 @@ export const OrganizationEdit = () => (
           label="Тип организации"
         />
       </ReferenceInput>
+      <ReferenceInput
+        source="municipalityId"
+        reference="dic_municipality"
+        label="Населенный пункт"
+      >
+        <SelectInput
+          optionText="value"
+          sx={{ width: 400 }}
+          label="Населенный пункт"
+        />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );

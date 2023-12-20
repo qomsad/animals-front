@@ -42,7 +42,7 @@ export const OrganizationCreate = () => {
           sx={{ width: 400 }}
         />
         <ReferenceInput
-          source="organizationType.id"
+          source="organizationTypeId"
           reference="dic_organization_type"
           label="Вид организации"
         >
@@ -53,7 +53,7 @@ export const OrganizationCreate = () => {
           />
         </ReferenceInput>
         <ReferenceInput
-          source="legalType.id"
+          source="legalTypeId"
           reference="dic_legal_type"
           label="Тип организации"
         >
@@ -61,6 +61,18 @@ export const OrganizationCreate = () => {
             optionText="value"
             sx={{ width: 400 }}
             label="Тип организации"
+          />
+        </ReferenceInput>
+
+        <ReferenceInput
+          source="municipalityId"
+          reference="dic_municipality"
+          label="Населенный пункт"
+        >
+          <SelectInput
+            optionText="value"
+            sx={{ width: 400 }}
+            label="Населенный пункт"
           />
         </ReferenceInput>
       </SimpleForm>
