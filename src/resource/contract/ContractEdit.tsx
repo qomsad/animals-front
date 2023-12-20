@@ -20,7 +20,7 @@ export const ContractEdit = () => (
         sx={{ width: 400 }}
       />
       <DateInput
-        source="completionDate"
+        source="competitionDate"
         label="Дата завершения"
         sx={{ width: 400 }}
       />

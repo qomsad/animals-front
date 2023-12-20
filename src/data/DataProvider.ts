@@ -25,8 +25,14 @@ export const dataProvider: DataProvider = {
 
     const filter = Object.keys(filters)
       .map((key) => {
-        if (Array.isArray(filters[key])) {
+        if (key.startsWith("DTS")) {
+          return `${key.split("DTS")[1]} > ${filters[key]}`;
+        } else if (key.startsWith("DTE")) {
+          return `${key.split("DTE")[1]} < ${filters[key]}`;
+        } else if (Array.isArray(filters[key])) {
           return `${key} == ${filters[key].join("|")}`;
+        } else if (JSON.stringify(filters[key]).startsWith("???DTS")) {
+          console.log("EZ");
         } else if (typeof filters[key] == "string") {
           return `${key} @=* ${filters[key]}`;
         } else if (typeof filters[key] == "number") {
@@ -64,7 +70,8 @@ export const dataProvider: DataProvider = {
       body: JSON.stringify(params.data),
     });
     if (response.status === 200) {
-      return Promise.resolve({ data: JSON.parse(JSON.stringify(params.data)) });
+      const { json } = response;
+      return Promise.resolve({ data: json });
     }
     return Promise.reject(new HttpError(response.body, response.status));
   },
@@ -73,7 +80,7 @@ export const dataProvider: DataProvider = {
     request(`${api}/${resource}/${params.id}`, {
       method: "PUT",
       body: JSON.stringify(params.data),
-    }).then(),
+    }).then(({ json }) => ({ data: json })),
 
   updateMany: (resource, params) => new Promise<any>(() => null),
 

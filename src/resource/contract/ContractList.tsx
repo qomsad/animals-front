@@ -51,8 +51,26 @@ export const ContractList = () => (
 
 const ContractFilters = [
   <TextInput label="Номер" source="num" defaultValue="" />,
-  <DateInput label="Дата заключения" source="conclusionDate" defaultValue="" />,
-  <DateInput label="Дата завершения" source="completionDate" defaultValue="" />,
+  <DateInput
+    label="Дата заключения после"
+    source="DTSconclusionDate"
+    defaultValue=""
+  />,
+  <DateInput
+    label="Дата заключения до"
+    source="DTEconclusionDate"
+    defaultValue=""
+  />,
+  <DateInput
+    label="Дата завершения после"
+    source="DTScompetitionDate"
+    defaultValue=""
+  />,
+  <DateInput
+    label="Дата завершения до"
+    source="DTEcompetitionDate"
+    defaultValue=""
+  />,
   <ReferenceArrayInput
     label="Заказчик"
     source="customerId"
