@@ -14,7 +14,6 @@ import {
   ReferenceArrayInput,
   ReferenceField,
   TextField,
-  TextInput,
   TopToolbar,
 } from "react-admin";
 import { Stack } from "@mui/material";
@@ -67,9 +66,9 @@ export const ReportMunicipalityList = () => (
 );
 
 const Filters = [
-  <TextInput source="number" label="Номер" defaultValue="" />,
-  <DateInput source="dateStart" label="Начало периода" defaultValue="" />,
-  <DateInput source="dateEnd" label="Конец периода" />,
+  <NumberInput source="number" label="Номер" defaultValue="" />,
+  <DateInput source="DTSdateStart" label="Отчеты после" defaultValue="" />,
+  <DateInput source="DTEdateEnd" label="Отчеты до" />,
   <ReferenceArrayInput
     label="Статус"
     source="statusId"
@@ -77,12 +76,13 @@ const Filters = [
   >
     <AutocompleteArrayInput
       sx={{ width: 400 }}
-      optionText="value"
+      optionText="statusName"
       label="Статус"
       filterToQuery={(searchText) => ({ statusName: searchText })}
     />
   </ReferenceArrayInput>,
-  <DateInput source="dateStatus" label="Дата статуса" />,
+  <DateInput source="DTSdateStatus" label="Дата статуса после" />,
+  <DateInput source="DTEdateStatus" label="Дата статуса до" />,
   <NumberInput source="totalCost" label="Общая стоимость" />,
   <ReferenceArrayInput
     source="municipalityId"

@@ -26,7 +26,7 @@ export const dataProvider: DataProvider = {
     const filter = Object.keys(filters)
       .map((key) => {
         if (key.startsWith("DTS")) {
-          return `${key.split("DTS")[1]} > ${filters[key]}`;
+          return `${key.split("DTS")[1]} >= ${filters[key]}`;
         } else if (key.startsWith("DTE")) {
           return `${key.split("DTE")[1]} < ${filters[key]}`;
         } else if (Array.isArray(filters[key])) {
