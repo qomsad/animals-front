@@ -6,6 +6,7 @@ import { dataProvider } from "./data/DataProvider";
 import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
 import PetsIcon from "@mui/icons-material/Pets";
+import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import { OrganizationList } from "./resource/organization/OrganizationList";
 import { OrganizationEdit } from "./resource/organization/OrganizationEdit";
 import { OrganizationCreate } from "./resource/organization/OrganizationCreate";
@@ -14,6 +15,7 @@ import { ContractEdit } from "./resource/contract/ContractEdit";
 import { ContractCreate } from "./resource/contract/ContractCreate";
 import { CatchActList } from "./resource/catch_act/CatchActList";
 import { CatchActEdit as CatchActEdit } from "./resource/catch_act/CatchActEdit";
+import { CatchScheduleList } from "./resource/catch_schedule/CatchScheduleList";
 
 export const App = () => (
   <Admin
@@ -24,6 +26,7 @@ export const App = () => (
     <Resource name="dic_legal_type" />
     <Resource name="dic_organization_type" />
     <Resource name="dic_municipality" />
+    <Resource name="catch_schedule_status" />
     <Resource
       name="organizations"
       list={OrganizationList}
@@ -46,6 +49,13 @@ export const App = () => (
       edit={CatchActEdit}
       icon={PetsIcon}
       options={{ label: "Акты отлова", title: "Акты отлова" }}
+    />
+    <Resource
+      name="catch_schedule"
+      list={CatchScheduleList}
+      edit={EditGuesser}
+      icon={AutoGraphIcon}
+      options={{ label: "План-график отлова", title: "План-график отлова" }}
     />
   </Admin>
 );
