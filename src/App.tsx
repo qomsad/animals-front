@@ -8,6 +8,7 @@ import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
 import PetsIcon from "@mui/icons-material/Pets";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 import { OrganizationList } from "./resource/organization/OrganizationList";
 import { OrganizationEdit } from "./resource/organization/OrganizationEdit";
 import { OrganizationCreate } from "./resource/organization/OrganizationCreate";
@@ -23,6 +24,7 @@ import { CatchActCreate } from "./resource/catch_act/CatchActCreate";
 import { ReportMunicipalityEdit } from "./resource/report_municipality/ReportMunicipalityEdit";
 import { CatchScheduleEdit } from "./resource/catch_schedule/CatchScheduleEdit";
 import { CatchScheduleCreate } from "./resource/catch_schedule/CatchScheduleCreate";
+import { LogList } from "./resource/log_info/LogInfoList";
 
 export const App = () => (
   <Admin
@@ -75,5 +77,12 @@ export const App = () => (
       icon={EqualizerIcon}
       options={{ label: "Отчет по городам", title: "Отчет по городам" }}
     />
+    <Resource
+      name="log"
+      list={LogList}
+      icon={EqualizerIcon}
+      options={{ label: "Журнал", title: "Журнал" }}
+    />
+    <Resource name="user" />
   </Admin>
 );
